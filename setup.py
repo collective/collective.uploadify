@@ -1,13 +1,15 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1'
+version = '0.2'
 
 setup(name='collective.uploadify',
       version=version,
       description="Multi File Upload for Plone",
       long_description=open("README.txt").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open(os.path.join("docs", "INSTALL.txt")).read() + "\n" +
+                       open(os.path.join("docs", "HISTORY.txt")).read() + "\n" +
+                       open(os.path.join("docs", "CONTRIBUTORS.txt")).read(),
       # Get more strings from http://www.python.org/pypi?%3Aaction=list_classifiers
       classifiers=[
         "Framework :: Plone",

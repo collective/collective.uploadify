@@ -46,7 +46,7 @@ class UploadingCapableFileFactory(object):
     def __call__(self, name, content_type, data):
         plone_tool = cmfutils.getToolByName(self.context, 'plone_utils')
         ctr = cmfutils.getToolByName(self.context, 'content_type_registry')
-        type_ = ctr.findTypeName(name, '', '') or 'File'
+        type_ = ctr.findTypeName(name.lower(), '', '') or 'File'
         newid = plone_tool.normalizeString(name)
 
         # otherwise I get ZPublisher.Conflict ConflictErrors

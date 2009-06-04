@@ -1,0 +1,6 @@
+Contributors
+============
+
+Ramon Bartl, Author, InQuant GmbH
+
+Stefan Eletzhofer, InQuant GmbH

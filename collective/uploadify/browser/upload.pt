@@ -7,8 +7,6 @@
       metal:use-macro="here/main_template/macros/master">
   <head>
     <metal:javascript fill-slot="javascript_head_slot">
-      <script type="text/javascript" src="++resource++jquery.js"></script>
-      <script type="text/javascript" src="++resource++jquery.uploadify.js"></script>
     </metal:javascript>
     <metal:css fill-slot="css_slot">
       <link rel="stylesheet" type="text/css" href="++resource++uploadify.css" />
@@ -16,6 +14,10 @@
   </head>
   <body>
     <div metal:fill-slot="main">
+
+      <script type="text/javascript" src="++resource++jquery.js"></script>
+      <script type="text/javascript" src="++resource++jquery.uploadify.js"></script>
+
       <script type="text/javascript">
       $(document).ready(function() {
        $('#uploader').fileUpload({
@@ -27,9 +29,17 @@
       });
       });
       </script>
+
       <div id="uploader"></div>
-      <a href="javascript:$('#uploader').fileUploadStart();">Upload Files</a>
-      <a href="javascript:$('#uploader').fileUploadClearQueue();">Clear all</a>
+
+      <hr />
+      <a id="uploadify-upload"
+         class="context"
+         href="javascript:$('#uploader').fileUploadStart();">Upload Files</a>
+
+      <a id="uploadify-clear"
+         class="context"
+         href="javascript:$('#uploader').fileUploadClearQueue();">Clear all</a>
     </div>
 
   </body>

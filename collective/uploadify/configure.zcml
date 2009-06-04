@@ -8,14 +8,6 @@
 
     <include package=".browser" />
 
-    <genericsetup:registerProfile
-        name="default"
-        title="collective.uploadify"
-        directory="profiles/default"
-        description="Multi File Upload for Plone"
-        provides="Products.GenericSetup.interfaces.EXTENSION"
-      />
-
 </configure>
 
 <!-- vim: set ft=xml ts=2 sw=2 expandtab : -->

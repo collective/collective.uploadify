@@ -28,5 +28,17 @@ Co-developed by Travis Nickels
 .fileUploadProgressBar {
     background-color: #0099FF;
 }
+#uploader {
+    margin-bottom: 15px;
+}
+#uploadify-upload {
+    text-decoration: none;
+    cursor: pointer;
+}
+#uploadify-clear {
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /* vim: set ft=css ts=4 sw=4 expandtab : */
