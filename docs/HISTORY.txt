@@ -1,6 +1,12 @@
 Changelog
 *********
 
+
+0.2.2 - (2009-06-04)
+--------------------
+
+* added missing *.txt extension to MANIFEST.in **ganarf** [ramonski]
+
 0.2.1 - (2009-06-04)
 --------------------
 

@@ -1,1 +1,1 @@
-global-include .py .xml .pt .js .zcml .png .swf .css
+global-include .py .xml .pt .js .zcml .png .swf .css .txt .GPL
