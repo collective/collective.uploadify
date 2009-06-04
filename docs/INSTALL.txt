@@ -1,5 +1,5 @@
 collective.uploadify Installation
----------------------------------
+*********************************
 
 To install collective.uploadify into the global Python environment (or a workingenv),
 using a traditional Zope 2 instance, you can do this:
@@ -28,7 +28,7 @@ into your Zope instance.
 Alternatively, if you are using zc.buildout and the plone.recipe.zope2instance
 recipe to manage your project, you can do this:
 
-* Add ``collective.uploadify`` to the list of eggs to install, e.g.:
+* Add ``collective.uploadify`` to the list of eggs to install, e.g.::
 
     [buildout]
     ...
