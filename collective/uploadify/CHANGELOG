@@ -2,5 +2,7 @@
     * CHANGELOG: started
     * __init__.py: removed initalize function
     * configure.zcml: removed five:registerPackage directive
+    * browser/upload.py: added some settings
+    * browser/configure.zcml: permission changed
 
 vim: set ft=changelog ts=4 sw=4 expandtab :

@@ -34,13 +34,21 @@ logger = logging.getLogger("collective.uploadify")
 # NEVER ADD A COMMA (,) AT THE END OF THE LAST KEY/VALUE PAIR, THIS BREAKS ALL
 # M$ INTERNET EXPLORER
 UPLOAD_JS = """
+    function all_complete(event, data) {
+        //alert(data.filesUploaded + " Files Uploaded!");
+        //alert(data.errors + " Errors");
+        //alert(data.speed + " Avg. Speed");
+        location.reload();
+    };
     $(document).ready(function() {
         $('#uploader').fileUpload({
-            'uploader'  : '%(portal_url)s/++resource++uploader.swf',
-            'script'    : '%(url)s/@@upload_file',
-            'cancelImg' : '%(portal_url)s/++resource++cancel.png',
-            'multi'     :  %(multi)s,
-            'folder'    : '%(url)s'
+            'uploader'      : '%(portal_url)s/++resource++uploader.swf',
+            'script'        : '%(url)s/@@upload_file',
+            'cancelImg'     : '%(portal_url)s/++resource++cancel.png',
+            'multi'         :  %(multi)s,
+            'onAllComplete' : all_complete,
+            'simUploadLimit': '%(sim_upload_limit)s',
+            'folder'        : '%(url)s'
         });
     });
 """
@@ -88,16 +96,9 @@ class UploadInit(BrowserView):
         settings = dict(portal_url = portal_url,
                         multi = 'true',
                         url = context.absolute_url(),
+                        sim_upload_limit = 4,
                        )
 
         return UPLOAD_JS % settings
-
-
-class UploadComplete(BrowserView):
-    """ Upload Completed
-    """
-
-    def __call__(self):
-        pass
 
 # vim: set ft=python ts=4 sw=4 expandtab :

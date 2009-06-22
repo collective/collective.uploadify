@@ -20,28 +20,22 @@
 
     <!-- UPLOAD -->
     <browser:page
-        for="*"
+        for=".interfaces.IUploadingCapable"
         name="upload"
         class=".upload.UploadView"
-        permission="zope.Public"/>
+        permission="cmf.ModifyPortalContent"/>
 
     <browser:page
         for="*"
         name="upload_file"
         class=".upload.UploadFile"
-        permission="zope.Public"/>
-
-    <browser:page
-        for="*"
-        name="upload_complete"
-        class=".upload.UploadComplete"
-        permission="zope.Public"/>
+        permission="zope2.View"/>
 
     <browser:page
         for="*"
         name="upload_init"
         class=".upload.UploadInit"
-        permission="zope.Public"/>
+        permission="zope2.View"/>
 
     <!-- RESOURCES -->
     <browser:resource

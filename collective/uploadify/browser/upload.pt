@@ -32,8 +32,12 @@
 
       <fieldset id="uploadify">
         <legend>Upload</legend>
+
+        <!-- uploadify comes here -->
         <div id="uploader"></div>
+
         <hr />
+
         <a id="uploadify-upload"
            class="context"
            href="javascript:$('#uploader').fileUploadStart();">Upload Files</a>
