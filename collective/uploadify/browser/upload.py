@@ -23,18 +23,39 @@ __docformat__ = 'plaintext'
 
 import logging
 import mimetypes
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zope.filerepresentation.interfaces import IFileFactory
 
 logger = logging.getLogger("collective.uploadify")
 
+UPLOAD_JS = """
+    $(document).ready(function() {
+        $('#uploader').fileUpload({
+            'uploader'    : '%(portal_url)s/++resource++uploader.swf',
+            'script'      : '%(url)s/@@upload_file',
+            'cancelImg'   : '%(portal_url)s/++resource++cancel.png',
+            'multi'       :  %(multi)s,
+            'folder'      : '%(url)s',
+        });
+    });
+"""
 
-class Upload(BrowserView):
+
+class UploadView(BrowserView):
     """ The Upload View
     """
 
     template = ViewPageTemplateFile("upload.pt")
+
+    def __call__(self):
+        return self.template()
+
+
+class UploadFile(BrowserView):
+    """ Upload a file
+    """
 
     def __init__(self, context, request):
         self.context = context
@@ -49,7 +70,31 @@ class Upload(BrowserView):
             factory = IFileFactory(self.context)
             logger.info("uploading file: filename=%s, content_type=%s" % (file_name, content_type))
             f = factory(file_name, content_type, file_data)
+            logger.info("file url: %s" % f.absolute_url())
+            return f.absolute_url()
 
-        return self.template()
+
+class UploadInit(BrowserView):
+    """ Initialize uploadify js
+    """
+
+    def __call__(self):
+        context = self.context
+        portal_url = getToolByName(context, 'portal_url')()
+
+        settings = dict(portal_url = portal_url,
+                        multi = 'true',
+                        url = context.absolute_url(),
+                       )
+
+        return UPLOAD_JS % settings
+
+
+class UploadCheck(BrowserView):
+    """ Upload Check
+    """
+    def __call__(self):
+        pass
+
 
 # vim: set ft=python ts=4 sw=4 expandtab :

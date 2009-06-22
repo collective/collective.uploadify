@@ -18,38 +18,47 @@
       <implements interface=".interfaces.IUploadingCapable" />
     </class>
 
+    <!-- UPLOAD -->
     <browser:page
         for="*"
         name="upload"
-        class=".upload.Upload"
-        permission="zope.Public"
-        allowed_attributes="upload"
-      />
+        class=".upload.UploadView"
+        permission="zope.Public"/>
 
+    <browser:page
+        for="*"
+        name="upload_file"
+        class=".upload.UploadFile"
+        permission="zope.Public"/>
+
+    <browser:page
+        for="*"
+        name="upload_check"
+        class=".upload.UploadCheck"
+        permission="zope.Public"/>
+
+    <browser:page
+        for="*"
+        name="upload_init"
+        class=".upload.UploadInit"
+        permission="zope.Public"/>
+
+    <!-- RESOURCES -->
     <browser:resource
         name="jquery.js"
-        file="jquery.js"
-      />
-
+        file="jquery.js"/>
     <browser:resource
         name="jquery.uploadify.js"
-        file="jquery.uploadify.js"
-      />
-
+        file="jquery.uploadify.js"/>
     <browser:resource
         name="uploader.swf"
-        file="uploader.swf"
-      />
-
+        file="uploader.swf"/>
     <browser:resource
         name="uploadify.css"
-        file="uploadify.css"
-      />
-
+        file="uploadify.css"/>
     <browser:resource
         name="cancel.png"
-        image="cancel.png"
-      />
+        image="cancel.png"/>
 
 </configure>
 

@@ -21,7 +21,4 @@
 __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
-def initialize(context):
-    """Initializer called when used as a Zope 2 product."""
-
 # vim: set ft=python ts=4 sw=4 expandtab :

@@ -1,0 +1,6 @@
+2009-06-22  ramonski <ramon.bartl@inquant.de>
+    * CHANGELOG: started
+    * __init__.py: removed initalize function
+    * configure.zcml: removed five:registerPackage directive
+
+vim: set ft=changelog ts=4 sw=4 expandtab :
