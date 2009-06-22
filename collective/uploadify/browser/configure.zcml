@@ -18,21 +18,23 @@
       <implements interface=".interfaces.IUploadingCapable" />
     </class>
 
-    <!-- UPLOAD -->
+    <!-- UPLOAD VIEW -->
     <browser:page
         for=".interfaces.IUploadingCapable"
         name="upload"
         class=".upload.UploadView"
         permission="cmf.ModifyPortalContent"/>
 
+    <!-- UPLOAD FILE -->
     <browser:page
-        for="*"
+        for=".interfaces.IUploadingCapable"
         name="upload_file"
         class=".upload.UploadFile"
         permission="zope2.View"/>
 
+    <!-- UPLOAD JS INITIALIZATION -->
     <browser:page
-        for="*"
+        for=".interfaces.IUploadingCapable"
         name="upload_init"
         class=".upload.UploadInit"
         permission="zope2.View"/>
