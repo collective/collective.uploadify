@@ -30,14 +30,17 @@ from zope.filerepresentation.interfaces import IFileFactory
 
 logger = logging.getLogger("collective.uploadify")
 
+# NOTE:
+# NEVER ADD A COMMA (,) AT THE END OF THE LAST KEY/VALUE PAIR, THIS BREAKS ALL
+# M$ INTERNET EXPLORER
 UPLOAD_JS = """
     $(document).ready(function() {
         $('#uploader').fileUpload({
-            'uploader'    : '%(portal_url)s/++resource++uploader.swf',
-            'script'      : '%(url)s/@@upload_file',
-            'cancelImg'   : '%(portal_url)s/++resource++cancel.png',
-            'multi'       :  %(multi)s,
-            'folder'      : '%(url)s',
+            'uploader'  : '%(portal_url)s/++resource++uploader.swf',
+            'script'    : '%(url)s/@@upload_file',
+            'cancelImg' : '%(portal_url)s/++resource++cancel.png',
+            'multi'     :  %(multi)s,
+            'folder'    : '%(url)s'
         });
     });
 """
@@ -90,11 +93,11 @@ class UploadInit(BrowserView):
         return UPLOAD_JS % settings
 
 
-class UploadCheck(BrowserView):
-    """ Upload Check
+class UploadComplete(BrowserView):
+    """ Upload Completed
     """
+
     def __call__(self):
         pass
-
 
 # vim: set ft=python ts=4 sw=4 expandtab :
