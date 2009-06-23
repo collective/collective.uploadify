@@ -2,6 +2,9 @@
     * browser/upload.pt: added cancel button
     * browser/upload.py (UploadInit.upload_settings): settings check now the
     site_properties for values
+    * browser/atct.py (UploadingCapableFileFactory.__call__): added name
+    chooser. This avoids errors when the id is already set in the current
+    context.
 
 2009-06-22  ramonski <ramon.bartl@inquant.de>
     * CHANGELOG: started

@@ -24,9 +24,14 @@ __docformat__ = 'plaintext'
 import transaction
 from thread import allocate_lock
 
+from Acquisition import aq_base
+
 from zope import interface
 from zope import component
+
 from zope.filerepresentation.interfaces import IFileFactory
+from zope.app.container.interfaces import INameChooser
+from plone.i18n.normalizer.interfaces import IIDNormalizer
 
 from Products.CMFPlone import utils as ploneutils
 from Products.CMFCore import utils as cmfutils
@@ -44,10 +49,12 @@ class UploadingCapableFileFactory(object):
         self.context = context
 
     def __call__(self, name, content_type, data):
-        plone_tool = cmfutils.getToolByName(self.context, 'plone_utils')
         ctr = cmfutils.getToolByName(self.context, 'content_type_registry')
         type_ = ctr.findTypeName(name.lower(), '', '') or 'File'
-        newid = plone_tool.normalizeString(name)
+
+        normalizer = component.getUtility(IIDNormalizer)
+        chooser = INameChooser(self.context)
+        newid = chooser.chooseName(normalizer.normalize(name), aq_base(self.context))
 
         # otherwise I get ZPublisher.Conflict ConflictErrors
         # when uploading multiple files

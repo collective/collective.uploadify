@@ -24,8 +24,9 @@ __docformat__ = 'plaintext'
 import logging
 import mimetypes
 
-from zope.filerepresentation.interfaces import IFileFactory
 from Acquisition import aq_inner
+
+from zope.filerepresentation.interfaces import IFileFactory
 
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
