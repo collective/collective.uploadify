@@ -1,8 +1,11 @@
 Introduction
 ============
 
-Multifileupload for Plone using uploadify (http://www.uploadify.com)
+**Makes Plone File Uploads easy**
 
+Multifileupload for Plone using uploadify_
+
+.. _uploadify: http://www.uploadify.com
 
 Usage
 *****
