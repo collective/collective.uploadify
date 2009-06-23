@@ -40,5 +40,10 @@ Co-developed by Travis Nickels
     text-decoration: none;
     cursor: pointer;
 }
+#uploadify-cancel {
+    margin-left: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 /* vim: set ft=css ts=4 sw=4 expandtab : */

@@ -1,3 +1,8 @@
+2009-06-23  ramonski <ramon.bartl@inquant.de>
+    * browser/upload.pt: added cancel button
+    * browser/upload.py (UploadInit.upload_settings): settings check now the
+    site_properties for values
+
 2009-06-22  ramonski <ramon.bartl@inquant.de>
     * CHANGELOG: started
     * __init__.py: removed initalize function

@@ -23,6 +23,7 @@ __docformat__ = 'plaintext'
 
 from zope import interface
 
+
 class IUploadingCapable(interface.Interface):
     """Any container/object that is supported for uploading into.
     """

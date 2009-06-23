@@ -38,19 +38,27 @@
 
         <hr />
 
+        <!-- upload button -->
         <a id="uploadify-upload"
            class="context"
            href="javascript:$('#uploader').fileUploadStart();">Upload Files</a>
+        <!-- clear button -->
         <a id="uploadify-clear"
            class="context"
            href="javascript:$('#uploader').fileUploadClearQueue();">Clear all</a>
+        <!-- cancel button -->
+        <a id="uploadify-cancel"
+           class="context"
+           href="javascript:$('#uploader').fileUploadCancel();">Cancel</a>
       </fieldset>
 
+      <!-- folder listing -->
       <div class="upload-folder-listing">
         <metal:block use-macro="context/folder_listing/macros/listing">
         </metal:block>
       </div>
 
+      <!-- uploadify javascript -->
       <script type="text/javascript"
               tal:content="structure context/@@upload_init">
       </script>
