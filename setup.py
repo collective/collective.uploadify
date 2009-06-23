@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.4'
+version = '0.5dev'
 
 setup(name='collective.uploadify',
       version=version,
@@ -19,7 +19,7 @@ setup(name='collective.uploadify',
       keywords='',
       author='Ramon Bartl',
       author_email='ramon.bartl@inquant.de',
-      url='http://svn.plone.org/svn/plone/collective.uploadify',
+      url='http://svn.plone.org/svn/collective/collective.uploadify',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective'],
