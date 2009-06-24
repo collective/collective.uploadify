@@ -22,6 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+/* XXX: ramonski
+ * otherwise L: 52 fails and upload don't starts */
 var $ = jq;
 
 var flashVer = -1;
@@ -66,6 +68,8 @@ if(jQuery)(
             fileUpload:function(options) {
                 if (flashVer >= 9) {
                     $(this).each(function(){
+                          /* XXX: ramonski:
+                           * see  http://www.uploadify.com/forum/viewtopic.php?f=4&t=266*/
                         var settings = $.extend({
                         uploader:      'uploader.swf',
                         script:        'uploader.php',

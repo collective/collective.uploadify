@@ -6,8 +6,6 @@
     * browser/upload.pt: use jq variable in template
     * browser/upload.py: uses now jq variable instead of $
     * browser/configure.zcml: removed jquery.js browser resource
-    * browser/atct.py (UploadingCapableFileFactory.__call__): removed aq_base
-    from context
 
 2009-06-23  ramonski <ramon.bartl@inquant.de>
     * browser/upload.pt: added cancel button
