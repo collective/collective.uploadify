@@ -27,14 +27,14 @@
 
     <!-- UPLOAD FILE -->
     <browser:page
-        for=".interfaces.IUploadingCapable"
+        for="*"
         name="upload_file"
         class=".upload.UploadFile"
         permission="zope2.View"/>
 
     <!-- UPLOAD JS INITIALIZATION -->
     <browser:page
-        for=".interfaces.IUploadingCapable"
+        for="*"
         name="upload_init"
         class=".upload.UploadInit"
         permission="zope2.View"/>

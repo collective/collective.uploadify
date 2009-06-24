@@ -24,8 +24,6 @@ __docformat__ = 'plaintext'
 import transaction
 from thread import allocate_lock
 
-from Acquisition import aq_base
-
 from zope import interface
 from zope import component
 
@@ -54,7 +52,7 @@ class UploadingCapableFileFactory(object):
 
         normalizer = component.getUtility(IIDNormalizer)
         chooser = INameChooser(self.context)
-        newid = chooser.chooseName(normalizer.normalize(name), aq_base(self.context))
+        newid = chooser.chooseName(normalizer.normalize(name), self.context)
 
         # otherwise I get ZPublisher.Conflict ConflictErrors
         # when uploading multiple files
