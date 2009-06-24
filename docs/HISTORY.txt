@@ -1,10 +1,16 @@
 Changelog
 *********
 
-0.5 - (trunk)
--------------
+0.5 - (2009-06-24)
+------------------
 
-* no changes yet
+* use now jquery.js shipped with plone
+  [ramonski]
+* fixed Bug with M$ IE Browsers described in
+  http://www.uploadify.com/forum/viewtopic.php?f=4&t=266
+  [ramonski]
+* uses jq variable instead of $ in templates and javascript
+  [ramonski]
 
 0.4 - (2009-06-23)
 ------------------

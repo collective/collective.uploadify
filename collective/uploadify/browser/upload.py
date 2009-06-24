@@ -44,8 +44,8 @@ UPLOAD_JS = """
         //alert(data.speed + " Avg. Speed");
         location.reload();
     };
-    $(document).ready(function() {
-        $('#uploader').fileUpload({
+    jq(document).ready(function() {
+        jq('#uploader').fileUpload({
             'uploader'      : '%(portal_url)s/++resource++uploader.swf',
             'script'        : '%(context_url)s/@@upload_file',
             'cancelImg'     : '%(portal_url)s/++resource++cancel.png',

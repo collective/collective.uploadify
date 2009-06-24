@@ -22,6 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 */
 
+var $ = jq;
+
 var flashVer = -1;
 if (navigator.plugins != null && navigator.plugins.length > 0) {
     if (navigator.plugins["Shockwave Flash 2.0"] || navigator.plugins["Shockwave Flash"]) {
@@ -53,7 +55,7 @@ if (navigator.plugins != null && navigator.plugins.length > 0) {
         axo = new ActiveXObject("ShockwaveFlash.ShockwaveFlash.7");
         version = axo.GetVariable("$version");
     } catch (e) {
-    }   
+    }
     flashVer = version.replace("WIN ","").replace(",",".");
 }
 flashVer = flashVer.split(".")[0];
@@ -64,7 +66,7 @@ if(jQuery)(
             fileUpload:function(options) {
                 if (flashVer >= 9) {
                     $(this).each(function(){
-                        settings = $.extend({
+                        var settings = $.extend({
                         uploader:      'uploader.swf',
                         script:        'uploader.php',
                         folder:        '',

@@ -41,9 +41,6 @@
 
     <!-- RESOURCES -->
     <browser:resource
-        name="jquery.js"
-        file="jquery.js"/>
-    <browser:resource
         name="jquery.uploadify.js"
         file="jquery.uploadify.js"/>
     <browser:resource

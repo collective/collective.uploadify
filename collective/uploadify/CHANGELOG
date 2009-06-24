@@ -1,3 +1,12 @@
+2009-06-24  ramonski <ramon.bartl@inquant.de>
+    * browser/jquery.uploadify.js: fixed bug in line 69 which causes uploadify
+    to stop loading in IE Browsers because of the issue described in
+    http://www.uploadify.com/forum/viewtopic.php?f=4&t=266
+    * browser/upload.pt: removed custom jquery.js
+    * browser/upload.pt: use jq variable in template
+    * browser/upload.py: uses now jq variable instead of $
+    * browser/configure.zcml: removed jquery.js browser resource
+
 2009-06-23  ramonski <ramon.bartl@inquant.de>
     * browser/upload.pt: added cancel button
     * browser/upload.py (UploadInit.upload_settings): settings check now the
