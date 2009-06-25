@@ -1,7 +1,7 @@
 Changelog
 *********
 
-0.5 - (2009-06-24)
+0.5 - (2009-06-25)
 ------------------
 
 * use now the jquery.js shipped with Plone.
