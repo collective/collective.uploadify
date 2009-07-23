@@ -21,4 +21,13 @@
 __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
+import logging
+
+logging.info(80*"*")
+logging.info(80*"*")
+logging.info(80*"*")
+logging.info(80*"*")
+logging.info(80*"*")
+logging.info(80*"*")
+
 # vim: set ft=python ts=4 sw=4 expandtab :

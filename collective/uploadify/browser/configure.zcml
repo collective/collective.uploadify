@@ -37,7 +37,7 @@
         for="*"
         name="upload_init"
         class=".upload.UploadInit"
-        permission="zope2.View"/>
+        permission="cmf.ModifyPortalContent"/>
 
     <!-- RESOURCES -->
     <browser:resource

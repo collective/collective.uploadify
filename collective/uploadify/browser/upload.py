@@ -46,10 +46,11 @@ UPLOAD_JS = """
     };
     jq(document).ready(function() {
         jq('#uploader').fileUpload({
-            'uploader'      : '%(portal_url)s/++resource++uploader.swf',
-            'script'        : '%(context_url)s/@@upload_file',
-            'cancelImg'     : '%(portal_url)s/++resource++cancel.png',
-            'folder'        : '%(context_url)s',
+            'uploader'      : '++resource++uploader.swf',
+            'script'        : '@@upload_file',
+            'cancelImg'     : '++resource++cancel.png',
+            'folder'        : '%(physical_path)s',
+            'scriptData'    : {'__ac': '%(__ac_cookie)s'},
             'onAllComplete' : all_complete,
             'auto'          : %(ul_auto_upload)s,
             'multi'         : %(ul_allow_multi)s,
@@ -59,6 +60,7 @@ UPLOAD_JS = """
             'fileExt'       : '%(ul_file_extensions)s',
             'buttonText'    : '%(ul_button_text)s',
             'buttonImg'     : '%(ul_button_image)s',
+            'scriptAccess'  : '%(ul_script_access)s',
             'hideButton'    : %(ul_hide_button)s
         });
     });
@@ -82,6 +84,12 @@ class UploadFile(BrowserView):
     def __init__(self, context, request):
         self.context = context
         self.request = request
+
+        # XXX: this probably needs to be refactored
+        qs = self.request.get('QUERY_STRING', '__ac=')
+        __ac = qs.split('__ac=')[-1] or None
+        if __ac:
+            self.request.cookies["__ac"] = __ac
 
     def __call__(self):
         file_name = self.request.form.get("Filename", "")
@@ -109,8 +117,10 @@ class UploadInit(BrowserView):
         portal_url = getToolByName(self.context, 'portal_url')()
 
         settings = dict(
+            __ac_cookie         = self.request.cookies.get('__ac', ''),
             portal_url          = portal_url,
             context_url         = self.context.absolute_url(),
+            physical_path       = "/".join(self.context.getPhysicalPath()),
             ul_auto_upload      = sp.getProperty('ul_auto_upload', 'false'),
             ul_allow_multi      = sp.getProperty('ul_allow_multi', 'true'),
             ul_sim_upload_limit = sp.getProperty('ul_sim_upload_limit', 4),
@@ -120,6 +130,7 @@ class UploadInit(BrowserView):
             ul_button_text      = sp.getProperty('ul_button_text', 'BROWSE'),
             ul_button_image     = sp.getProperty('ul_button_image', ''),
             ul_hide_button      = sp.getProperty('ul_hide_button', 'false'),
+            ul_script_access    = sp.getProperty('ul_script_access', 'sameDomain'),
         )
         return settings
 

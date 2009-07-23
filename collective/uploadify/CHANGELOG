@@ -1,3 +1,13 @@
+2009-07-23  ramonski <ramon.bartl@inquant.de>
+    * browser/upload.py: fixed absolute paths in javascripts to relative
+    paths.
+    * browser/upload.py (UploadFile.__init__): the upload_file view restores
+    the __ac cookie when the flash uploader uploads the file
+    * browser/atct.py (UploadingCapableFileFactory.__call__): fixed name
+    chooser. This fixes #2
+    * browser/upload.py (UploadInit.upload_settings): added script access
+    property
+
 2009-06-24  ramonski <ramon.bartl@inquant.de>
     * browser/jquery.uploadify.js: fixed bug in line 69 which causes uploadify
     to stop loading in IE Browsers because of the issue described in
