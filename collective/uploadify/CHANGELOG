@@ -7,6 +7,7 @@
     chooser. This fixes #2
     * browser/upload.py (UploadInit.upload_settings): added script access
     property
+    * __init__.py: removed logging
 
 2009-06-24  ramonski <ramon.bartl@inquant.de>
     * browser/jquery.uploadify.js: fixed bug in line 69 which causes uploadify

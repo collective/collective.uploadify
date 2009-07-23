@@ -52,7 +52,7 @@ class UploadingCapableFileFactory(object):
 
         normalizer = component.getUtility(IIDNormalizer)
         chooser = INameChooser(self.context)
-        newid = chooser.chooseName(normalizer.normalize(name), self.context)
+        newid = chooser.chooseName(normalizer.normalize(name), self.context.aq_parent)
 
         # otherwise I get ZPublisher.Conflict ConflictErrors
         # when uploading multiple files
