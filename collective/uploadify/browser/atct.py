@@ -50,6 +50,9 @@ class UploadingCapableFileFactory(object):
         ctr = cmfutils.getToolByName(self.context, 'content_type_registry')
         type_ = ctr.findTypeName(name.lower(), '', '') or 'File'
 
+        # XXX: quick fix for german umlauts
+        name = name.decode("utf8")
+
         normalizer = component.getUtility(IIDNormalizer)
         chooser = INameChooser(self.context)
         newid = chooser.chooseName(normalizer.normalize(name), self.context.aq_parent)

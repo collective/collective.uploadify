@@ -8,6 +8,8 @@ Changelog
   [seletz, ramonski]
 * added custom string encoder/decoder
   [seletz, ramonski]
+* fixed name chooser for german umlauts
+  [ramonski]
 
 0.7 - 2009-07-23
 ----------------
