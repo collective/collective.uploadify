@@ -39,6 +39,7 @@ logger = logging.getLogger("collective.uploadify")
 def encode(s):
     """ encode string
     """
+
     return "d".join(map(str, map(ord, s)))
 
 

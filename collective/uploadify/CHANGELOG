@@ -1,3 +1,10 @@
+2009-10-27  ramonski <ramon.bartl@inquant.de>
+    * browser/upload.py (get_ac_value): added cgi query string parser
+    * browser/upload.py (encode): added
+    * browser/upload.py (decode): added
+    * browser/upload.py (UploadInit.upload_settings): now encode the cookie
+    value. This fixes the issue when the cookie contains spaces.
+
 2009-07-23  ramonski <ramon.bartl@inquant.de>
     * browser/upload.py: fixed absolute paths in javascripts to relative
     paths.
