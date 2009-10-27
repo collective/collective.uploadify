@@ -21,6 +21,7 @@
 __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
+import cgi
 import logging
 import mimetypes
 
@@ -33,6 +34,29 @@ from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 
 logger = logging.getLogger("collective.uploadify")
+
+
+def encode(s):
+    """ encode string
+    """
+    return "d".join(map(str, map(ord, s)))
+
+
+def decode(s):
+    """ decode string
+    """
+
+    return "".join(map(chr, map(int, s.split("d"))))
+
+
+def get_ac_value(qs):
+    """ parse cookie value
+    """
+
+    ac = cgi.parse_qs(qs).get("cookie")
+    if ac:
+        return ac[0]
+
 
 # NOTE, THIS IS NOT A PYTHON DICT:
 # NEVER ADD A COMMA (,) AT THE END OF THE LAST KEY/VALUE PAIR, THIS BREAKS ALL
@@ -50,7 +74,7 @@ UPLOAD_JS = """
             'script'        : '@@upload_file',
             'cancelImg'     : '++resource++cancel.png',
             'folder'        : '%(physical_path)s',
-            'scriptData'    : {'__ac': '%(__ac_cookie)s'},
+            'scriptData'    : {'cookie': '%(cookie)s'},
             'onAllComplete' : all_complete,
             'auto'          : %(ul_auto_upload)s,
             'multi'         : %(ul_allow_multi)s,
@@ -82,23 +106,23 @@ class UploadFile(BrowserView):
     """
 
     def __init__(self, context, request):
+
         self.context = context
         self.request = request
-
-        # XXX: this probably needs to be refactored
-        qs = self.request.get('QUERY_STRING', '__ac=')
-        __ac = qs.split('__ac=')[-1] or None
-        if __ac:
-            self.request.cookies["__ac"] = __ac
+        cookie = get_ac_value(self.request.QUERY_STRING)
+        if cookie:
+            self.request.cookies["__ac"] = decode(cookie)
 
     def __call__(self):
+
         file_name = self.request.form.get("Filename", "")
         file_data = self.request.form.get("Filedata", None)
         content_type = mimetypes.guess_type(file_name)[0]
 
         if file_data:
             factory = IFileFactory(self.context)
-            logger.info("uploading file: filename=%s, content_type=%s" % (file_name, content_type))
+            logger.info("uploading file: filename=%s, content_type=%s" % \
+                    (file_name, content_type))
             f = factory(file_name, content_type, file_data)
             logger.info("file url: %s" % f.absolute_url())
             return f.absolute_url()
@@ -117,7 +141,7 @@ class UploadInit(BrowserView):
         portal_url = getToolByName(self.context, 'portal_url')()
 
         settings = dict(
-            __ac_cookie         = self.request.cookies.get('__ac', ''),
+            cookie              = self.request.cookies.get('__ac', ''),
             portal_url          = portal_url,
             context_url         = self.context.absolute_url(),
             physical_path       = "/".join(self.context.getPhysicalPath()),
@@ -132,6 +156,10 @@ class UploadInit(BrowserView):
             ul_hide_button      = sp.getProperty('ul_hide_button', 'false'),
             ul_script_access    = sp.getProperty('ul_script_access', 'sameDomain'),
         )
+
+        # This encoding is needed when the cookie value contains spaces!
+        settings["cookie"] = encode(settings["cookie"])
+
         return settings
 
     def __call__(self):
