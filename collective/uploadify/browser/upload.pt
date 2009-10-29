@@ -12,6 +12,10 @@
               type="text/javascript"
               tal:attributes="src string:$portal_url/++resource++jquery.uploadify.js">
       </script>
+      <script src="jquery.uploadify.js"
+              type="text/javascript"
+              tal:attributes="src string:$portal_url/++resource++swfobject.js">
+      </script>
     </metal:javascript>
     <metal:css fill-slot="css_slot">
       <link href="uploadify.css"
@@ -37,15 +41,11 @@
         <!-- upload button -->
         <a id="uploadify-upload"
            class="context"
-           href="javascript:jq('#uploader').fileUploadStart();">Upload Files</a>
+           href="javascript:jq('#uploader').uploadifyUpload();">Upload Files</a>
         <!-- clear button -->
-        <a id="uploadify-clear"
+        <a id="uploadify-clear-queue"
            class="context"
-           href="javascript:jq('#uploader').fileUploadClearQueue();">Clear all</a>
-        <!-- cancel button -->
-        <a id="uploadify-cancel"
-           class="context"
-           href="javascript:jq('#uploader').fileUploadCancel();">Cancel</a>
+           href="javascript:jq('#uploader').uploadifyClearQueue();">Clear Queue</a>
       </fieldset>
 
       <!-- folder listing -->
@@ -56,7 +56,7 @@
 
       <!-- uploadify javascript -->
       <script type="text/javascript"
-              tal:content="structure context/@@upload_init">
+              tal:content="structure context/@@upload_initialize">
       </script>
 
       <div class="visualClear"><!-- --></div>

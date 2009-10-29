@@ -1,6 +1,17 @@
 Changelog
 *********
 
+0.9 - 2009-10-29
+----------------
+
+* updated to Uploadify v2.1.0
+  [ramonski]
+* removed cgi parser for QUERY_STRING.
+  Now we receive the data via POST
+  [ramonski]
+* updated js, css and upload.pt
+  [ramonski]
+
 0.8 - 2009-10-27
 ----------------
 

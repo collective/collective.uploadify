@@ -21,7 +21,6 @@
 __author__ = 'Ramon Bartl <ramon.bartl@inquant.de>'
 __docformat__ = 'plaintext'
 
-import cgi
 import logging
 import mimetypes
 
@@ -50,15 +49,6 @@ def decode(s):
     return "".join(map(chr, map(int, s.split("d"))))
 
 
-def get_ac_value(qs):
-    """ parse cookie value
-    """
-
-    ac = cgi.parse_qs(qs).get("cookie")
-    if ac:
-        return ac[0]
-
-
 # NOTE, THIS IS NOT A PYTHON DICT:
 # NEVER ADD A COMMA (,) AT THE END OF THE LAST KEY/VALUE PAIR, THIS BREAKS ALL
 # M$ INTERNET EXPLORER
@@ -70,7 +60,7 @@ UPLOAD_JS = """
         location.reload();
     };
     jq(document).ready(function() {
-        jq('#uploader').fileUpload({
+        jq('#uploader').uploadify({
             'uploader'      : '++resource++uploader.swf',
             'script'        : '@@upload_file',
             'cancelImg'     : '++resource++cancel.png',
@@ -107,10 +97,10 @@ class UploadFile(BrowserView):
     """
 
     def __init__(self, context, request):
-
         self.context = context
         self.request = request
-        cookie = get_ac_value(self.request.QUERY_STRING)
+
+        cookie = self.request.form.get("cookie")
         if cookie:
             self.request.cookies["__ac"] = decode(cookie)
 
@@ -129,12 +119,12 @@ class UploadFile(BrowserView):
             return f.absolute_url()
 
 
-class UploadInit(BrowserView):
+class UploadInitalize(BrowserView):
     """ Initialize uploadify js
     """
 
     def __init__(self, context, request):
-        super(UploadInit, self).__init__(context, request)
+        super(UploadInitalize, self).__init__(context, request)
         self.context = aq_inner(context)
 
     def upload_settings(self):

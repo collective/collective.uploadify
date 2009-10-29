@@ -1,3 +1,13 @@
+2009-10-29  ramonski <ramon.bartl@inquant.de>
+    * browser/upload.py (encode): renamed Class and View to avoid name
+    conflict with PFU
+    * browser/upload.py (get_ac_value): removed
+    * browser/uploader.swf: updated to v2.1.0
+    * browser/uploadify.css: updated css
+    * browser/configure.zcml: added swfobject to resources
+    * browser/swfobject.js: added
+    * browser/jquery.uploadify.js: updated to v2.1.0
+
 2009-10-27  ramonski <ramon.bartl@inquant.de>
     * browser/upload.py (get_ac_value): added cgi query string parser
     * browser/upload.py (encode): added

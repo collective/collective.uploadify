@@ -35,14 +35,17 @@
     <!-- UPLOAD JS INITIALIZATION -->
     <browser:page
         for="*"
-        name="upload_init"
-        class=".upload.UploadInit"
+        name="upload_initialize"
+        class=".upload.UploadInitalize"
         permission="cmf.ModifyPortalContent"/>
 
     <!-- RESOURCES -->
     <browser:resource
         name="jquery.uploadify.js"
         file="jquery.uploadify.js"/>
+    <browser:resource
+        name="swfobject.js"
+        file="swfobject.js"/>
     <browser:resource
         name="uploader.swf"
         file="uploader.swf"/>
