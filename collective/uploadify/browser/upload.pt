@@ -17,7 +17,7 @@
               tal:attributes="src string:$portal_url/++resource++swfobject.js">
       </script>
     </metal:javascript>
-    <metal:css fill-slot="css_slot">
+    <metal:css fill-slot="style_slot">
       <link href="uploadify.css"
             rel="stylesheet"
             type="text/css"
@@ -28,7 +28,8 @@
   <body>
     <div metal:fill-slot="main">
 
-      <metal:header metal:use-macro="here/base/macros/header" />
+
+      <!--XXX breaks plone4.0a5 see http://plone.org/products/collective.uploadify/issues/5 metal:header metal:use-macro="here/base/macros/header" /-->
 
       <fieldset id="uploadify">
         <legend>Upload</legend>
@@ -60,7 +61,7 @@
       </script>
 
       <div class="visualClear"><!-- --></div>
-      <metal:footer metal:use-macro="here/base/macros/footer" />
+      <!-- XXX breaks plone4.0a5 see http://plone.org/products/collective.uploadify/issues/5 metal:footer metal:use-macro="here/base/macros/footer" /-->
     </div>
 
   </body>

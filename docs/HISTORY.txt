@@ -1,6 +1,12 @@
 Changelog
 *********
 
+after 0.9
+---------
+
+* play well with plone4's sunburst theme
+  [fRiSi]
+
 0.9 - 2009-10-29
 ----------------
 
