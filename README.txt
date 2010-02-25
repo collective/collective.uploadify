@@ -61,7 +61,8 @@ following lines:
 Configuration
 *************
 
-The following settings can be done in the site_properties:
+The following settings can be done in the site_properties.
+(please use string properties):
 
   - ul_auto_upload -- true/false (default: false)
 
