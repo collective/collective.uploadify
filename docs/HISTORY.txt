@@ -7,6 +7,10 @@ after 0.9
 * play well with plone4's sunburst theme
   [fRiSi]
 
+* #7 reindex objects after upload so uploaded image files get
+  recognized as images (fixes http://plone.org/products/collective.uploadify/issues/7)
+  [fRiSi]
+
 0.9 - 2009-10-29
 ----------------
 
