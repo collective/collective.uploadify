@@ -1,8 +1,8 @@
 Changelog
 *********
 
-after 0.9
----------
+0.10 - 2010-03-16
+-----------------
 
 * #5 play well with plone4's sunburst theme
   (fixes http://plone.org/products/collective.uploadify/issues/5)
