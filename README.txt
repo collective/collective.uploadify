@@ -105,4 +105,4 @@ The following settings can be done in the site_properties.
 
   - ul_script_access -- always/sameDomain (default: sameDomain)
 
-    *The access mode for scripts in the flash file.  If you are testing locally, set to ‘always’.*
+    *The access mode for scripts in the flash file.  If you are testing locally, set to `always`.*
