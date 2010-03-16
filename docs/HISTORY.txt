@@ -4,7 +4,8 @@ Changelog
 after 0.9
 ---------
 
-* play well with plone4's sunburst theme
+* #5 play well with plone4's sunburst theme
+  (fixes http://plone.org/products/collective.uploadify/issues/5)
   [fRiSi]
 
 * #7 reindex objects after upload so uploaded image files get
