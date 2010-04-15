@@ -27,6 +27,8 @@ from thread import allocate_lock
 from zope import interface
 from zope import component
 
+from zope.event import notify
+from zope.lifecycleevent import ObjectModifiedEvent
 from zope.filerepresentation.interfaces import IFileFactory
 from zope.app.container.interfaces import INameChooser
 from plone.i18n.normalizer.interfaces import IIDNormalizer
@@ -67,6 +69,9 @@ class UploadingCapableFileFactory(object):
             mutator(data, content_type=content_type)
             obj.setTitle(name)
             obj.reindexObject()
+
+            notify(ObjectModifiedEvent(obj))
+
             transaction.commit()
         finally:
             upload_lock.release()

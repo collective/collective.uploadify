@@ -1,6 +1,13 @@
 Changelog
 *********
 
+0.11 - Unreleased
+-----------------
+
+* #9 fire ObjectModifiedEvent after upload of each item.
+  (fixes http://plone.org/products/collective.uploadify/issues/9)
+  [saily]
+
 0.10 - 2010-03-16
 -----------------
 
