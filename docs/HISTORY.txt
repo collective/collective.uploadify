@@ -4,6 +4,10 @@ Changelog
 0.11 - Unreleased
 -----------------
 
+* Added height and width to the settings in UploadInitialize flash response to
+  give users the possibility to customize their uploadbuttons.
+  [saily]
+
 * #9 fire ObjectModifiedEvent after upload of each item.
   (fixes http://plone.org/products/collective.uploadify/issues/9)
   [saily]
