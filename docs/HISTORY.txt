@@ -4,6 +4,10 @@ Changelog
 0.11 - Unreleased
 -----------------
 
+* Added queue size to the settings in UploadInitialize flash response to
+  give users the possibility to customize their upload queue size.
+  [zupo]
+
 * Documentation updates. Added new section about customize uploadify's upload
   view and upload initialize view templates.
   [saily]

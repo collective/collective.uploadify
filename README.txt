@@ -77,6 +77,10 @@ The following settings can be done in the site_properties.
 
     *A limit to the number of simultaneous uploads you would like to allow.*
 
+  - ul_queue_size_limit -- number 1-n (default: 999)
+
+    *A limit to the number of files you can select to upload in one go.*
+
   - ul_size_limit -- size in bytes (default: empty)
 
     *A number representing the limit in bytes for each upload.*
