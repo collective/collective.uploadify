@@ -1,3 +1,8 @@
+2010-04-25  ramonski <ramon.bartl@inquant.de>
+    * browser/configure.zcml: renamed swfobject.js to collective.swfobject.js
+    * tests/test_setup.py (TestSetup.testViewNotAvailableOnContentTypes):
+    added some basic tests
+
 2009-10-29  ramonski <ramon.bartl@inquant.de>
     * browser/upload.py (encode): renamed Class and View to avoid name
     conflict with PFU

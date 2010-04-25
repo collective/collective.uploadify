@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.10'
+version = '1.0rc1'
 
 setup(name='collective.uploadify',
       version=version,

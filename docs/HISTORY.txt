@@ -1,8 +1,15 @@
 Changelog
 *********
 
-0.11 - Unreleased
------------------
+1.0rc1 - 2010-04-25
+-------------------
+
+* renamed resource swfobject.js to collective.swfobject.js.
+  This fixes the name clash with quintagroup.portlet.cumulus
+  [ramonski]
+
+* Added some basic tests to the package
+  [ramonski]
 
 * Added queue size to the settings in UploadInitialize flash response to
   give users the possibility to customize their upload queue size.

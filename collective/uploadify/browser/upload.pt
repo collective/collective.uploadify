@@ -14,7 +14,7 @@
       </script>
       <script src="jquery.uploadify.js"
               type="text/javascript"
-              tal:attributes="src string:$portal_url/++resource++swfobject.js">
+              tal:attributes="src string:$portal_url/++resource++uploadify.swfobject.js">
       </script>
     </metal:javascript>
     <metal:css fill-slot="style_slot">

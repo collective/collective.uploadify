@@ -44,7 +44,7 @@
         name="jquery.uploadify.js"
         file="jquery.uploadify.js"/>
     <browser:resource
-        name="swfobject.js"
+        name="uploadify.swfobject.js"
         file="swfobject.js"/>
     <browser:resource
         name="uploader.swf"
