@@ -3,7 +3,7 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
       xml:lang="en" lang="en"
-      i18n:domain="plone"
+      i18n:domain="collective.uploadify"
       metal:use-macro="here/main_template/macros/master">
 
   <head>
@@ -32,7 +32,7 @@
       <!--XXX breaks plone4.0a5 see http://plone.org/products/collective.uploadify/issues/5 metal:header metal:use-macro="here/base/macros/header" /-->
 
       <fieldset id="uploadify">
-        <legend>Upload</legend>
+        <legend i18n:translate="">Upload</legend>
 
         <!-- uploadify comes here -->
         <div id="uploader"></div>
@@ -42,11 +42,11 @@
         <!-- upload button -->
         <a id="uploadify-upload"
            class="context"
-           href="javascript:jq('#uploader').uploadifyUpload();">Upload Files</a>
+           href="javascript:jq('#uploader').uploadifyUpload();" i18n:translate="">Upload Files</a>
         <!-- clear button -->
         <a id="uploadify-clear-queue"
            class="context"
-           href="javascript:jq('#uploader').uploadifyClearQueue();">Clear Queue</a>
+           href="javascript:jq('#uploader').uploadifyClearQueue();" i18n:translate="">Clear Queue</a>
       </fieldset>
 
       <!-- folder listing -->
