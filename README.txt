@@ -34,10 +34,10 @@ profiles/default/actions.xml::
       <object name="upload" meta_type="CMF Action" i18n:domain="wcms.skin.backend">
        <property name="title" i18n:translate="">Upload</property>
        <property name="description" i18n:translate="">Batch upload files.</property>
-       <property name="url_expr">string:${object_url}/@@upload</property>
+       <property name="url_expr">string:${folder_url}/@@upload</property>
        <property name="icon_expr"></property>
        <property name="available_expr">
-         python:portal.portal_workflow.getInfoFor(context, "review_state", default="") == "published" and plone_context_state.is_folderish()
+         python:portal.portal_workflow.getInfoFor(context, "review_state", default="") == "published"
        </property>
        <property name="permissions">
         <element value="Modify portal content"/>
@@ -52,10 +52,10 @@ add a new CMF Action Category from the dropdown and configure it with the
 following lines:
 
     - URL (Expression):
-        string:${object_url}/@@upload
+        string:${folder_url}/@@upload
 
     - Condition (Expression):
-        python:portal.portal_workflow.getInfoFor(context, "review_state", default="") == "published" and plone_context_state.is_folderish()
+        python:portal.portal_workflow.getInfoFor(context, "review_state", default="") == "published"
 
 
 Configuration
