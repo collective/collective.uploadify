@@ -4,8 +4,9 @@ Changelog
 after 1.0rc1
 ------------
 
-* use folder_url and remove is_folderish() condition to make upload
-  action show up on folders having a default page too
+* use folder_url and remove is_folderish() and wf-state condition
+  to make upload action show up on private folders or
+  folders having a default page too
   (fixes http://plone.org/products/collective.uploadify/issues/12)
   [fRiSi]
 
