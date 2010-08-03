@@ -14,7 +14,7 @@
     <!-- <utility component=".utility.prefix_filename"
                  name="prefix-image-filenames"/> -->
 
-    <configure zcml:condition="have plone.app.blob">
+    <configure zcml:condition="installed plone.app.blob">
       <!-- see: plone.app.blob.field.py L:207-->
       <adapter factory=".adapters.BlobbablecStringIO" />
     </configure>
