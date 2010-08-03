@@ -19,6 +19,8 @@ Changelog
   folders having a default page too
   (fixes http://plone.org/products/collective.uploadify/issues/12)
   [fRiSi]
+* i18n added + danish translation
+  [stonor]
 
 1.0rc1 - 2010-04-25
 -------------------
