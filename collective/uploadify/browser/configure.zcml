@@ -13,6 +13,9 @@
     <!-- <utility component=".utility.prefix_filename"
                  name="prefix-image-filenames"/> -->
 
+    <!-- see: plone.app.blob.field.py L:207-->
+    <adapter factory=".adapters.BlobbablecStringIO" />
+
     <class class="Products.ATContentTypes.content.folder.ATFolder">
       <implements interface=".interfaces.IUploadingCapable" />
     </class>

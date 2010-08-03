@@ -17,6 +17,10 @@ Changelog
 * id chooser gets now called *after* the thread lock. This should fix #8
   [ramonski]
 
+* added adapter for cStringIO.OutputType -> IBlobbable to be compatible with
+  Plone 4
+  [ramonski]
+
 * use folder_url and remove is_folderish() and wf-state condition
   to make upload action show up on private folders or
   folders having a default page too
