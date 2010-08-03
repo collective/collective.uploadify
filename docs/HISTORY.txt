@@ -18,7 +18,8 @@ Changelog
   [ramonski]
 
 * added adapter for cStringIO.OutputType -> IBlobbable to be compatible with
-  Plone 4
+  plone.app.blob. This adapter gets only registered when plone.app.blob is
+  istalled.
   [ramonski]
 
 * use folder_url and remove is_folderish() and wf-state condition
