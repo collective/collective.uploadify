@@ -2,6 +2,7 @@
     xmlns="http://namespaces.zope.org/zope"
     xmlns:five="http://namespaces.zope.org/five"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.uploadify">
 
     <adapter factory=".atct.UploadingCapableFileFactory" />
@@ -13,8 +14,10 @@
     <!-- <utility component=".utility.prefix_filename"
                  name="prefix-image-filenames"/> -->
 
-    <!-- see: plone.app.blob.field.py L:207-->
-    <adapter factory=".adapters.BlobbablecStringIO" />
+    <configure zcml:condition="have plone.app.blob">
+      <!-- see: plone.app.blob.field.py L:207-->
+      <adapter factory=".adapters.BlobbablecStringIO" />
+    </configure>
 
     <class class="Products.ATContentTypes.content.folder.ATFolder">
       <implements interface=".interfaces.IUploadingCapable" />
