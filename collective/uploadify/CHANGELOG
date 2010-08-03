@@ -1,3 +1,10 @@
+2010-08-03  ramonski <ramon.bartl@inquant.de>
+    * browser/atct.py: moved id chooser after the thread lock. This should
+    fix#8
+    * browser/configure.zcml: added utility registration
+    * browser/utility.py (scale_image_size):implemented scale image utility
+    * browser/interfaces.py (IFileMutator): new interface introduced
+
 2010-04-25  ramonski <ramon.bartl@inquant.de>
     * browser/configure.zcml: renamed swfobject.js to collective.swfobject.js
     * tests/test_setup.py (TestSetup.testViewNotAvailableOnContentTypes):

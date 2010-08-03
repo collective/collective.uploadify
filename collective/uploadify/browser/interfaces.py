@@ -25,7 +25,13 @@ from zope import interface
 
 
 class IUploadingCapable(interface.Interface):
-    """Any container/object that is supported for uploading into.
+    """ Any container/object that is supported for uploading into.
+    """
+
+class IFileMutator(interface.Interface):
+    """ a file mutator utility
+
+        returns -> (file_name, file_data, content_type)
     """
 
 # vim: set ft=python ts=4 sw=4 expandtab :

@@ -57,7 +57,7 @@ Configuration
 *************
 
 The following settings can be done in the site_properties.
-(please use string properties):
+(please use **string** properties only!):
 
   - ul_auto_upload -- true/false (default: false)
 
@@ -118,6 +118,79 @@ The following settings can be done in the site_properties.
 
     *The ul_height value which should be set when using a different sized
     ul_button_image*
+
+
+NEW in version 1.0rc2:
+
+  - ul_scale_image_size -- x,y
+
+    *These two values define the max x,y size in pixels of the image. Scales
+    an image down to at most ul_scale_image_size size preserving aspect ratio.
+    Example: 800,600 to set a maximum size of 800x600 pixels*
+
+
+
+Adding a custom File Mutator Utility
+************************************
+
+If you want to so some special handling for uploaded files *before* they get
+created in the portal, you can simply register a new utility providing the
+IFileMutator Interface.
+
+Your utility will be called with **file_name, file_data, content_type** just
+before the content will be created in the portal.
+
+Hint:
+
+**file_name**::
+
+    type: str
+
+    example: my-image.jpg
+
+**file_data**::
+
+    type: <ZPublisher.HTTPRequest.FileUpload instance at -...>
+
+    can be used just like a file.
+
+**content_type**::
+
+    type: str
+
+    example: 'image/jpeg'
+
+
+configure.zcml::
+
+    <!-- An Utility to give images an "photo-" prefix -->
+    <utility component=".utility.prefix_image_filename"
+             name="prefix-image-filename"/>
+
+utility.py::
+
+    from zope import interface
+
+    def prefix_image_filename(file_name, file_data, content_type):
+        """ Prefix all images with 'photo-<filename>'
+        """
+        # we only handle image files
+        if not content_type.startswith("image"):
+            return (file_name, file_data, content_type)
+
+        if not file_name.startswith("photo"):
+            file_name = "-".join(["photo", file_name])
+        return (file_name, file_data, content_type)
+
+
+    interface.directlyProvides(prefix_image_filename,
+                               IFileMutator)
+
+**NOTE:**
+
+Your utility has to return a tuple of::
+
+    (file_name, file_data, content_type)
 
 
 Customization for specific BrowserLayer

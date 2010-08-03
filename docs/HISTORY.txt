@@ -1,9 +1,19 @@
 Changelog
 *********
 
-after 1.0rc1
-------------
+1.0rc2 - 2010-08-03
+-------------------
 
+* Interface "IFileMutator" introduced -- utilities which provide this
+  interface can do some file mutations on the uploaded file *before* it get
+  created as an content type
+  [ramonski]
+* utility scale_image_size registered -- this utility operates on images an
+  can scale down the image size using PIL preserving the aspect ration from
+  the input file
+  [ramonski]
+* id chooser gets now called *after* the thread lock. This should fix #8
+  [ramonski]
 * use folder_url and remove is_folderish() and wf-state condition
   to make upload action show up on private folders or
   folders having a default page too

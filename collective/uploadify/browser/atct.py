@@ -57,11 +57,13 @@ class UploadingCapableFileFactory(object):
 
         normalizer = component.getUtility(IIDNormalizer)
         chooser = INameChooser(self.context)
-        newid = chooser.chooseName(normalizer.normalize(name), self.context.aq_parent)
 
         # otherwise I get ZPublisher.Conflict ConflictErrors
         # when uploading multiple files
         upload_lock.acquire()
+
+        # this should fix #8
+        newid = chooser.chooseName(normalizer.normalize(name), self.context.aq_parent)
         try:
             transaction.begin()
             obj = ploneutils._createObjectByType(type_, self.context, newid)

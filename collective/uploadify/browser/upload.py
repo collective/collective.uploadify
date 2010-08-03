@@ -26,11 +26,14 @@ import mimetypes
 
 from Acquisition import aq_inner
 
+from zope import component
 from zope.filerepresentation.interfaces import IFileFactory
 
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+
+from interfaces import IFileMutator
 
 logger = logging.getLogger("collective.uploadify")
 
@@ -110,8 +113,13 @@ class UploadFile(BrowserView):
     def __call__(self):
 
         file_name = self.request.form.get("Filename", "")
+        # ZPublisher.HTTPRequest.FileUpload instance
         file_data = self.request.form.get("Filedata", None)
         content_type = mimetypes.guess_type(file_name)[0]
+
+        # call all file mutator utilities
+        for mutator in component.getAllUtilitiesRegisteredFor(IFileMutator):
+            file_name, file_data, content_type = mutator(file_name, file_data, content_type)
 
         if file_data:
             factory = IFileFactory(self.context)
