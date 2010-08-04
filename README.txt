@@ -12,11 +12,14 @@ Usage
 
 After insall, go to http://your-plone-site/@@upload
 
-NOTE
-****
 
-collective.uploadify contains **no** GenericSetup Profile, thus, it won't
-appear in the quickinstaller tool.
+Integration in Plone
+********************
+
+.. sidebar:: Note
+
+    collective.uploadify contains **no** GenericSetup Profile, thus, it won't
+    appear in the quickinstaller tool.
 
 If you want to smoothly integrate the upload funtionality to your site,
 consider to add the following lines to your policy product in the
@@ -38,7 +41,7 @@ profiles/default/actions.xml::
        <property name="icon_expr"></property>
        <property name="available_expr"></property>
        <property name="permissions">
-        <element value="Modify portal content"/>
+        <element value="Add portal content"/>
        </property>
        <property name="visible">True</property>
       </object>
@@ -47,10 +50,9 @@ profiles/default/actions.xml::
 
 or simply go to the Zope Management Interface -> portal_actions -> object and
 add a new CMF Action Category from the dropdown and configure it with the
-following lines:
+following lines::
 
-    - URL (Expression):
-        string:${folder_url}/@@upload
+    URL (Expression): string:${folder_url}/@@upload
 
 
 Configuration
@@ -120,7 +122,7 @@ The following settings can be done in the site_properties.
     ul_button_image*
 
 
-NEW in version 1.0rc2:
+**NEW in version 1.0rc2:**
 
   - ul_scale_image_size -- x,y
 
@@ -140,25 +142,31 @@ IFileMutator Interface.
 Your utility will be called with **file_name, file_data, content_type** just
 before the content will be created in the portal.
 
-Hint:
+.. sidebar:: Parameters
 
-**file_name**::
+    **file_name**::
 
-    type: str
+        type: str
 
-    example: my-image.jpg
+        example: my-image.jpg
 
-**file_data**::
+    **file_data**::
 
-    type: <ZPublisher.HTTPRequest.FileUpload instance at -...>
+        type: <ZPublisher.HTTPRequest.FileUpload instance at -...>
 
-    can be used just like a file.
+        can be used just like a file.
 
-**content_type**::
+    **content_type**::
 
-    type: str
+        type: str
 
-    example: 'image/jpeg'
+        example: 'image/jpeg'
+
+
+Example
+~~~~~~~
+
+A simple utility which adds a "photo-" prefix to image filenames
 
 
 configure.zcml::
@@ -166,6 +174,7 @@ configure.zcml::
     <!-- An Utility to give images an "photo-" prefix -->
     <utility component=".utility.prefix_image_filename"
              name="prefix-image-filename"/>
+
 
 utility.py::
 
@@ -186,11 +195,12 @@ utility.py::
     interface.directlyProvides(prefix_image_filename,
                                IFileMutator)
 
-**NOTE:**
 
-Your utility has to return a tuple of::
+.. note::
 
-    (file_name, file_data, content_type)
+    Your utility has to return a tuple of::
+
+        (file_name, file_data, content_type)
 
 
 Customization for specific BrowserLayer
@@ -214,7 +224,7 @@ initialize callback view
              for="collective.uploadify.browser.interfaces.IUploadingCapable"
              name="upload"
              template="templates/upload.pt"
-             permission="cmf.ModifyPortalContent"
+             permission="cmf.AddPortalContent"
              layer=".interfaces.IThemeSpecific"
              />
 
@@ -262,7 +272,7 @@ initialize callback view
              for="*"
              name="upload_initialize"
              class=".uploadify.MyCustomUploadInitalize"
-             permission="cmf.ModifyPortalContent"
+             permission="cmf.AddPortalContent"
              layer=".interfaces.IThemeSpecific"
              />
 
