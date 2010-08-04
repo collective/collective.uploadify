@@ -1,3 +1,6 @@
+2010-08-04  ramonski <ramon.bartl@inquant.de>
+    * browser/configure.zcml: changed Permission to cmf.AddPortalContent
+
 2010-08-03  ramonski <ramon.bartl@inquant.de>
     * browser/atct.py: moved id chooser after the thread lock. This should
     fix#8

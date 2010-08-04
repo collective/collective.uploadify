@@ -115,7 +115,7 @@ class UploadFile(BrowserView):
         file_name = self.request.form.get("Filename", "")
         # ZPublisher.HTTPRequest.FileUpload instance
         file_data = self.request.form.get("Filedata", None)
-        content_type = mimetypes.guess_type(file_name)[0]
+        content_type = mimetypes.guess_type(file_name)[0] or ""
 
         # call all file mutator utilities
         for mutator in component.getAllUtilitiesRegisteredFor(IFileMutator):
