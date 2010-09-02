@@ -33,6 +33,7 @@ from zope.filerepresentation.interfaces import IFileFactory
 from zope.app.container.interfaces import INameChooser
 from plone.i18n.normalizer.interfaces import IIDNormalizer
 
+from Products.Archetypes.event import ObjectInitializedEvent
 from Products.CMFPlone import utils as ploneutils
 from Products.CMFCore import utils as cmfutils
 
@@ -72,6 +73,7 @@ class UploadingCapableFileFactory(object):
             obj.setTitle(name)
             obj.reindexObject()
 
+            notify(ObjectInitializedEvent(obj))
             notify(ObjectModifiedEvent(obj))
 
             transaction.commit()

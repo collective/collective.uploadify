@@ -4,6 +4,9 @@ Changelog
 1.0rc3 - trunk
 --------------
 
+* Fire Archetypes ObjectInitializedEvent for uploaded content.
+  [hannosch]
+
 * Corrected ``i18n:domain`` in documented action and include its messages into
   the pot file.
   [hannosch]
