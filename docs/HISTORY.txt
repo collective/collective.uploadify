@@ -4,6 +4,10 @@ Changelog
 1.0rc3 - trunk
 --------------
 
+* Added a ``z3c.autoinclude`` entry point to avoid the need for a ZCML slug in
+  Plone 3.3 and later.
+  [hannosch]
+
 * changed permissions to cmf.AddPortalContent
   this fixes http://plone.org/products/collective.uploadify/issues/13
   [ramonski]
