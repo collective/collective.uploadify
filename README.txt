@@ -34,7 +34,7 @@ profiles/default/actions.xml::
       <property name="title"></property>
 
       <!-- MULTI UPLOAD -->
-      <object name="upload" meta_type="CMF Action" i18n:domain="wcms.skin.backend">
+      <object name="upload" meta_type="CMF Action" i18n:domain="collective.uploadify">
        <property name="title" i18n:translate="">Upload</property>
        <property name="description" i18n:translate="">Batch upload files.</property>
        <property name="url_expr">string:${folder_url}/@@upload</property>

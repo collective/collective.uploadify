@@ -4,6 +4,10 @@ Changelog
 1.0rc3 - trunk
 --------------
 
+* Corrected ``i18n:domain`` in documented action and include its messages into
+  the pot file.
+  [hannosch]
+
 * Added a ``z3c.autoinclude`` entry point to avoid the need for a ZCML slug in
   Plone 3.3 and later.
   [hannosch]

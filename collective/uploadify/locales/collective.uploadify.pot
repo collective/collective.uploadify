@@ -17,6 +17,10 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.uploadify\n"
 
+#: GenericSetup actions.xml
+msgid "Batch upload files."
+msgstr ""
+
 #: ./browser/upload.pt:47
 msgid "Clear Queue"
 msgstr ""
