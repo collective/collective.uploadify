@@ -164,7 +164,7 @@ before the content will be created in the portal.
 
 
 Example
-~~~~~~~
+-------
 
 A simple utility which adds a "photo-" prefix to image filenames
 
