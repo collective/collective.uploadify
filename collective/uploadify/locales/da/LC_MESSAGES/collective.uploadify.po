@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2010-06-04 14:29+0000\n"
+"POT-Creation-Date: 2010-12-01 13:42+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,15 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.uploadify\n"
 
-#: ./browser/upload.pt:47
+#: ./../browser/upload.pt:47
 msgid "Clear Queue"
 msgstr "Tøm kø"
 
-#: ./browser/upload.pt:35
+#: ./../browser/upload.pt:35
 msgid "Upload"
 msgstr "Upload"
 
-#: ./browser/upload.pt:43
+#: ./../browser/upload.pt:43
 msgid "Upload Files"
 msgstr "Upload filer"
 
