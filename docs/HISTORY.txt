@@ -1,10 +1,12 @@
 Changelog
 *********
 
-after 1.0rc4
-------------
+1.0rc5 - 2011-04-04
+-------------------
 
-* no changes yet
+* Support for different contenttypes [thor27]
+* added basque translation [erral]
+* added spain translation [macagua]
 
 1.0rc4 - 2011-01-31
 -------------------

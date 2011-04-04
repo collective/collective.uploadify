@@ -125,14 +125,16 @@ The following settings can be done in the site_properties.
     *The ul_height value which should be set when using a different sized
     ul_button_image*
 
-
-**NEW in version 1.0rc2:**
-
   - ul_scale_image_size -- x,y
 
     *These two values define the max x,y size in pixels of the image. Scales
     an image down to at most ul_scale_image_size size preserving aspect ratio.
     Example: 800,600 to set a maximum size of 800x600 pixels*
+
+  - ul_content_field -- Contenttype.field
+
+    *The uploaded file is included into the specific field from the specific Contenttype
+    Example: File.file it uploads to field file from the contenttype File*
 
 
 
