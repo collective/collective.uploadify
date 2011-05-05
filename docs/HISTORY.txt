@@ -1,6 +1,12 @@
 Changelog
 *********
 
+1.0 - 2011-05-05
+----------------
+
+* fixed the loss of File Extensions for Plone > 3.3.5 with IDNormalizer.
+  Utility. Changed to use the IFileNameNormalizer Utility instead [jakke, ramonski]
+
 1.0rc5 - 2011-04-04
 -------------------
 

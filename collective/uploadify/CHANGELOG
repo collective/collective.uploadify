@@ -1,3 +1,8 @@
+2011-05-05  ramonski <ramon.bartl@inquant.de>
+
+    * browser/atct.py (UploadingCapableFileFactory.__call__): changed to use
+    IFileNameNormalizer. This fixes the wrong name generation in plone 4.
+
 2010-08-04  ramonski <ramon.bartl@inquant.de>
     * browser/configure.zcml: changed Permission to cmf.AddPortalContent
 

@@ -31,7 +31,7 @@ from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.filerepresentation.interfaces import IFileFactory
 from zope.app.container.interfaces import INameChooser
-from plone.i18n.normalizer.interfaces import IIDNormalizer
+from plone.i18n.normalizer.interfaces import IFileNameNormalizer
 
 from Products.Archetypes.event import ObjectInitializedEvent
 from Products.CMFPlone import utils as ploneutils
@@ -56,7 +56,7 @@ class UploadingCapableFileFactory(object):
         # XXX: quick fix for german umlauts
         name = name.decode("utf8")
 
-        normalizer = component.getUtility(IIDNormalizer)
+        normalizer = component.getUtility(IFileNameNormalizer)
         chooser = INameChooser(self.context)
 
         # otherwise I get ZPublisher.Conflict ConflictErrors
