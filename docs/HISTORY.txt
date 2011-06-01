@@ -1,6 +1,12 @@
 Changelog
 *********
 
+1.0 - 2011-06-01
+----------------
+
+* added default genericsetup profile which adds folder tab for on each folder.
+  [garbas]
+
 1.0 - 2011-05-05
 ----------------
 

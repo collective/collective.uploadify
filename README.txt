@@ -7,56 +7,12 @@ Multifileupload for Plone using uploadify_
 
 .. _uploadify: http://www.uploadify.com
 
-Usage
-*****
 
-After insall, go to http://your-plone-site/@@upload
+Plone integration
+*****************
 
-
-Integration in Plone
-********************
-
-.. sidebar:: Note
-
-    collective.uploadify contains **no** GenericSetup Profile, thus, it won't
-    appear in the quickinstaller tool.
-
-If you want to smoothly integrate the upload funtionality to your site,
-consider to add the following lines to your policy product in the
-profiles/default/actions.xml::
-
-    <?xml version="1.0"?>
-    <object name="portal_actions" meta_type="Plone Actions Tool"
-       xmlns:i18n="http://xml.zope.org/namespaces/i18n">
-
-     <!-- *** OBJECT *** -->
-     <object name="object" meta_type="CMF Action Category">
-      <property name="title"></property>
-
-      <!-- MULTI UPLOAD -->
-      <object name="upload" meta_type="CMF Action" i18n:domain="collective.uploadify">
-       <property name="title" i18n:translate="">Upload</property>
-       <property name="description" i18n:translate="">Batch upload files.</property>
-       <property name="url_expr">
-         string:${plone_context_state/canonical_object_url}/@@upload
-       </property>
-       <property name="icon_expr"></property>
-       <property name="available_expr">
-         python:plone_context_state.is_folderish() or plone_context_state.is_default_page()
-       </property>
-       <property name="permissions">
-        <element value="Add portal content"/>
-       </property>
-       <property name="visible">True</property>
-      </object>
-     </object>
-    </object>
-
-or simply go to the Zope Management Interface -> portal_actions -> object and
-add a new CMF Action Category from the dropdown and configure it with the
-following lines::
-
-    URL (Expression): string:${folder_url}/@@upload
+``Upload`` folder tab action is install with default profile. You can install
+it via portal_quickinstaller or via Addons section in control panel.
 
 
 Configuration
