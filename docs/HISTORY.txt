@@ -4,14 +4,14 @@ Changelog
 1.0.1 - Unreleased
 ------------------
 
+* Plone 4.3 compatibility
+  [alert]
+
 * added italian translation.
   [keul]
 
 * cleanup egg format, removing bad zopeskel elements
   [keul]
-
-1.0 - 2011-06-01
-----------------
 
 * added default genericsetup profile which adds folder tab for on each folder.
   [garbas]

@@ -30,7 +30,13 @@ from zope import component
 from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.filerepresentation.interfaces import IFileFactory
-from zope.app.container.interfaces import INameChooser
+
+# Since Plone4.3 INameChooser moved to zope.container
+try:
+    from zope.container.interfaces import INameChooser
+except:
+    from zope.app.container.interfaces import INameChooser
+
 from plone.i18n.normalizer.interfaces import IFileNameNormalizer
 
 from Products.Archetypes.event import ObjectInitializedEvent
