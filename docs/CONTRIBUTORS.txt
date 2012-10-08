@@ -1,7 +1,7 @@
 Contributors
 ************
 
-Ramon Bartl, Author, InQuant GmbH
+Ramon Bartl, Author
 
 Stefan Eletzhofer, InQuant GmbH
 

@@ -6,7 +6,7 @@ version = '1.1'
 setup(name='collective.uploadify',
       version=version,
       description="Multi File Upload for Plone",
-      long_description=open("README.txt").read() + "\n" +
+      long_description=open("README.rst").read() + "\n" +
                        open(os.path.join("docs", "INSTALL.txt")).read() + "\n" +
                        open(os.path.join("docs", "HISTORY.txt")).read() + "\n" +
                        open(os.path.join("docs", "CONTRIBUTORS.txt")).read(),
@@ -18,7 +18,7 @@ setup(name='collective.uploadify',
         ],
       keywords='',
       author='Ramon Bartl',
-      author_email='ramon.bartl@inquant.de',
+      author_email='ramon.bartl@nexiles.de',
       url='http://plone.org/products/collective.uploadify',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),

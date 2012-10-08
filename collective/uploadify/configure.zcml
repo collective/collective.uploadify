@@ -15,7 +15,6 @@
       description="Default profile for collective.uploadify"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
-    
 
 </configure>
 
