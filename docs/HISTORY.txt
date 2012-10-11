@@ -1,10 +1,10 @@
 Changelog
 *********
 
-1.1 - 2012-10-08
+1.1 - 2012-10-11
 ----------------
 
-* prepared to moved to GitHub
+* moved to GitHub
   [ramonski]
 
 * Plone 4.3 compatibility
