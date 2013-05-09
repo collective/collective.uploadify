@@ -15,14 +15,6 @@ from zope.event import notify
 from zope.lifecycleevent import ObjectModifiedEvent
 from zope.filerepresentation.interfaces import IFileFactory
 
-# Since Plone4.3 INameChooser moved to zope.container
-try:
-    from zope.container.interfaces import INameChooser
-except:
-    from zope.app.container.interfaces import INameChooser
-
-from plone.i18n.normalizer.interfaces import IFileNameNormalizer
-
 from Products.Archetypes.event import ObjectInitializedEvent
 from Products.CMFPlone import utils as ploneutils
 from Products.CMFCore import utils as cmfutils
@@ -39,25 +31,17 @@ class UploadingCapableFileFactory(object):
     def __init__(self, context):
         self.context = context
 
-    def __call__(self, name, content_type, data):
+    def __call__(self, name, content_type, data, obj_id):
         ctr = cmfutils.getToolByName(self.context, 'content_type_registry')
         type_ = ctr.findTypeName(name.lower(), '', '') or 'File'
-
-        # XXX: quick fix for german umlauts
-        name = name.decode("utf8")
-
-        normalizer = component.getUtility(IFileNameNormalizer)
-        chooser = INameChooser(self.context)
 
         # otherwise I get ZPublisher.Conflict ConflictErrors
         # when uploading multiple files
         upload_lock.acquire()
 
-        # this should fix #8
-        newid = chooser.chooseName(normalizer.normalize(name), self.context.aq_parent)
         try:
             transaction.begin()
-            obj = ploneutils._createObjectByType(type_, self.context, newid)
+            obj = ploneutils._createObjectByType(type_, self.context, obj_id)
             mutator = obj.getPrimaryField().getMutator(obj)
             mutator(data, content_type=content_type)
             obj.setTitle(name)

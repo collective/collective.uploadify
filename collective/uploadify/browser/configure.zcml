@@ -5,7 +5,13 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="collective.uploadify">
 
-    <adapter factory=".atct.UploadingCapableFileFactory" />
+    <configure zcml:condition="not-installed plone.app.contenttypes">
+        <adapter factory=".atct.UploadingCapableFileFactory" />
+    </configure>
+
+    <configure zcml:condition="installed plone.app.contenttypes">
+        <adapter factory=".dexterity.UploadingCapableFileFactory" />
+    </configure>
 
     <!-- An Utility to resize a image using PIL -->
     <utility component=".utility.scale_image_size" name="image-pil-resizer"/>
@@ -22,6 +28,12 @@
     <class class="Products.ATContentTypes.content.folder.ATFolder">
       <implements interface=".interfaces.IUploadingCapable" />
     </class>
+
+    <configure zcml:condition="installed plone.app.contenttypes">
+    <class class="plone.app.contenttypes.content.Folder">
+      <implements interface=".interfaces.IUploadingCapable" />
+    </class>
+    </configure>
 
     <class class="Products.ATContentTypes.content.folder.ATBTreeFolder">
       <implements interface=".interfaces.IUploadingCapable" />

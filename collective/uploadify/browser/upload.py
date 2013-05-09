@@ -14,9 +14,11 @@ from zope import component
 from zope.filerepresentation.interfaces import IFileFactory
 
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone import utils as ploneutils
 from Products.Five.browser import BrowserView
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.i18n.normalizer.interfaces import IIDNormalizer
+# from plone.i18n.normalizer.interfaces import IURLNormalizer
+from plone.i18n.normalizer.interfaces import IUserPreferredURLNormalizer
 
 from interfaces import IFileMutator
 
@@ -73,17 +75,6 @@ UPLOAD_JS = """
 """
 
 
-def generate_id(container, title):
-    """ Generates a uniqe id from a specific title
-    """
-    normalizer = component.getUtility(IIDNormalizer)
-    obj_id = normalizer.normalize(title)
-    if hasattr(container, obj_id):
-        obj_id = container.generateUniqueId(obj_id)
-
-    return obj_id
-
-
 class UploadView(BrowserView):
     """ The Upload View
     """
@@ -108,6 +99,12 @@ class UploadFile(BrowserView):
 
     def __call__(self):
         file_name = self.request.form.get("Filename", "")
+
+        normalizer = IUserPreferredURLNormalizer(self.request)
+        obj_id = normalizer.normalize(ploneutils.safe_unicode(file_name))
+        if hasattr(self.context, obj_id):
+            obj_id = self.context.generateUniqueId(obj_id)
+
         # ZPublisher.HTTPRequest.FileUpload instance
         file_data = self.request.form.get("Filedata", None)
         content_type = mimetypes.guess_type(file_name)[0] or ""
@@ -120,21 +117,19 @@ class UploadFile(BrowserView):
             return
 
         logger.info("uploading file: filename=%s, content_type=%s" % \
-                (file_name, content_type))
+                (obj_id, content_type))
 
         sp = getToolByName(self.context, "portal_properties").site_properties
         ul_content_field = sp.getProperty('ul_content_field', '')
-
         if not ul_content_field:
             factory = IFileFactory(self.context)
-            f = factory(file_name, content_type, file_data)
+            f = factory(file_name, content_type, file_data, obj_id)
         else:
             fields = ul_content_field.split('.')
-            obj_id = generate_id(self.context, file_name)
             param = {
-                    'type_name': fields[0],
-                    'id': obj_id,
-                    fields[1]: file_data,
+                'type_name': fields[0],
+                'id': obj_id,
+                fields[1]: file_data,
             }
             self.context.invokeFactory(**param)
             f = self.context[obj_id]
