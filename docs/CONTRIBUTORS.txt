@@ -16,3 +16,5 @@ Jan Van Hees, K.U.Leuven
 Kim Paulissen, K.U.Leuven
 
 Rok Garbas, http://www.garbas.si
+
+Philip Bauer, bauer@starzel.de
