@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 #
-# File: __init__.py
+# File: dexterity.py
 
-__author__ = 'Ramon Bartl <ramon.bartl@nexiles.de>'
+__author__ = 'Philip Bauer <bauer@starzel.de>'
 __docformat__ = 'plaintext'
 
 from Products.Archetypes.event import ObjectInitializedEvent

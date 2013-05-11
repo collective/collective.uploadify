@@ -4,10 +4,10 @@ Changelog
 1.2 (unreleased)
 ----------------
 
-- make compatible with dexterity (plone.app.contenttypes)
+* make compatible with dexterity (plone.app.contenttypes)
   [pbauer]
 
-- use IUserPreferredURLNormalizer to set id's
+* use IUserPreferredURLNormalizer to set id's
   [pbauer]
 
 
