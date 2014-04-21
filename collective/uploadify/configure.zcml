@@ -15,7 +15,12 @@
       description="Default profile for collective.uploadify"
       provides="Products.GenericSetup.interfaces.EXTENSION"
       />
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.uploadify uninstall"
+      directory="profiles/uninstall"
+      description="Uninstall collective.uploadify"
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      />
 
 </configure>
-
-<!-- vim: set ft=xml ts=2 sw=2 expandtab : -->

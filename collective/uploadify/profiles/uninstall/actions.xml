@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<object name="portal_actions" meta_type="Plone Actions Tool"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <object name="object" meta_type="CMF Action Category">
+  <object remove="True" name="upload" meta_type="CMF Action"/>
+ </object>
+</object>
